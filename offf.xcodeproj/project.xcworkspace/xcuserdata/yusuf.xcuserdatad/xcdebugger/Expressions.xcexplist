@@ -1,0 +1,214 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<VariablesViewState
+   version = "1.0">
+   <ContextStates>
+      <ContextState
+         contextName = "static MusicPlayer.nextTrack(_:):MusicPlayer.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "event.command">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "static MusicPlayer.play(startAt:):MusicPlayer.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "MusicPlayer.playbackPositionDictionary">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "SecondViewController.tableView(_:didSelectRowAt:):AllSongsViewController.swift">
+      </ContextState>
+      <ContextState
+         contextName = "MusicPlayer.handleRouteChange(notification:):MusicPlayer.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "session.currentRoute.outputs">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "static AppGlobals.saveLastPosInfoOfSong(song:pos:):AppGlobals.swift">
+      </ContextState>
+      <ContextState
+         contextName = "PlayerScreenViewController.playPauseClicked(_:):PlayerScreenViewController.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "volumeView!.subviews">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "SongsOfArtistViewController.shuffleButtonClicked():SongsOfArtistViewController.swift">
+      </ContextState>
+      <ContextState
+         contextName = "static AppGlobals.playbackStateDidChange(notification:):AppGlobals.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "(nowPlayingItem as MPMediaItem).title">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "static MusicPlayer.setCurrentItem():MusicPlayer.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "queue[getCurrentItemIndex()].title">
+            </PersistentString>
+            <PersistentString
+               value = "queue[2].title">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "PlayerScreenTitleView.commonInit():PlayerScreenTitleView.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "contentView">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "static MusicPlayer.setShuffle(enabled:):MusicPlayer.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "queue.firstIndex(of: currentItem!)">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "SecondViewController.getSongList(_:):SecondViewController.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "song.title">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "PlayerScreenViewController.goBack(_:):PlayerScreenViewController.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "navigationController">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "static AppGlobals.createSemiUniqueKeyForSong(song:):AppGlobals.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "song.albumTitle">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "static MusicPlayer.routeChanged(notification:):MusicPlayer.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "avPlayer?.rate">
+            </PersistentString>
+            <PersistentString
+               value = "AVAudioSession.sharedInstance().currentRoute.outputs">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "SecondViewController.tableView(_:didSelectRowAt:):SecondViewController.swift">
+      </ContextState>
+      <ContextState
+         contextName = "SongList.init():SongList.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "structuredSongList[&quot;ASMR&quot;];">
+            </PersistentString>
+            <PersistentString
+               value = "structuredSongList[&quot;Pilli Bebek&quot;];">
+            </PersistentString>
+            <PersistentString
+               value = "SongList.artistsSectionStructure">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "PlayerScreenViewController.setSeekbarMinMax():PlayerScreenViewController.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "MusicPlayer">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "AlbumsOfArtistTableHedarViewUIView.commonInit():AlbumsOfArtistTableHedarViewUIView.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "Bundle.main">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "AppDelegate.applicationWillTerminate(_:):AppDelegate.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "AppDelegate.application(_:didFinishLaunchingWithOptions:):AppDelegate.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "query.items.count">
+            </PersistentString>
+            <PersistentString
+               value = "lastyPosDict.keys[0]">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "static MusicPlayer.resume():MusicPlayer.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "avPlayer?.currentTime().seconds">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "SecondViewController.initApp():AllSongsViewController.swift">
+      </ContextState>
+      <ContextState
+         contextName = "static Equalizer.embedIntoView(view:equalizer:):Equalizer.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "view.constraints">
+            </PersistentString>
+            <PersistentString
+               value = "equalizer.constraints">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "PlayerScreenViewController.viewDidLoad():PlayerScreenViewController.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "lastPosDict[key];">
+            </PersistentString>
+            <PersistentString
+               value = "songList[0].bookmarkTime">
+            </PersistentString>
+            <PersistentString
+               value = "lastPosOfSong!">
+            </PersistentString>
+            <PersistentString
+               value = "musicPlayer">
+            </PersistentString>
+            <PersistentString
+               value = "lastPosOfSong!!">
+            </PersistentString>
+            <PersistentString
+               value = "lastPosOfSong as! TimeInterval;">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+   </ContextStates>
+</VariablesViewState>

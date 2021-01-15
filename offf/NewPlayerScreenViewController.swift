@@ -18,7 +18,37 @@ class MyPopAnimation: CABasicAnimation {
 }
 
 class MyImageView: UIImageView, CAAnimationDelegate {
-    public func addPopAnimation(noteView: MyImageView) {
+    
+    public func addRotateAnimation() {
+        let rotateAnimation = CABasicAnimation(keyPath: "transform.rotation");
+        rotateAnimation.fromValue = 0;
+        rotateAnimation.toValue = Double.pi * 2;
+        rotateAnimation.duration = 5;
+        rotateAnimation.fillMode = .forwards;
+        rotateAnimation.repeatCount = Float.infinity;
+        rotateAnimation.delegate = self;
+        
+        self.layer.add(rotateAnimation, forKey: nil);
+    }
+    
+    public func addSwingAnimation() {
+        let swingAnimation = CAKeyframeAnimation(keyPath: "transform.rotation");
+        swingAnimation.values = [0, Double.pi * 0.03, 0, -Double.pi * 0.03, 0];
+        swingAnimation.duration = 5;
+        swingAnimation.fillMode = .forwards;
+        swingAnimation.isRemovedOnCompletion = true;
+        swingAnimation.repeatCount = Float.infinity;
+        swingAnimation.calculationMode = .cubic;
+        swingAnimation.delegate = self;
+        
+        self.layer.add(swingAnimation, forKey: nil);
+    }
+    
+    func animationDidStop(_ anim: CAAnimation, finished flag: Bool) {
+        print("animation stopped");
+    }
+    
+    /*public func addPopAnimation(noteView: MyImageView) {
         let popAnimation = MyPopAnimation(keyPath: "transform.scale");
         popAnimation.fromValue = 0;
         popAnimation.toValue = 1;
@@ -53,7 +83,7 @@ class MyImageView: UIImageView, CAAnimationDelegate {
                 addPopAnimation(noteView: self);
             }
         }
-    }
+    }*/
 }
 
 class NewPlayerScreenViewController: UIViewController {
@@ -73,6 +103,9 @@ class NewPlayerScreenViewController: UIViewController {
     @IBOutlet weak var loopButton: LoopButton!
     @IBOutlet weak var shuffleButton: ShuffleButton!
     @IBOutlet weak var animationView: UIView!
+    
+    @IBOutlet weak var vinylImage: MyImageView!
+    @IBOutlet weak var vinylLightImage: MyImageView!
     
     @IBOutlet weak var artistLabelHeightConstraint: NSLayoutConstraint!
     @IBOutlet weak var albumLabelHeightConstraint: NSLayoutConstraint!
@@ -109,6 +142,8 @@ class NewPlayerScreenViewController: UIViewController {
         
         shuffleButton.setStatus(status: MusicPlayer.getShuffleStatus());
         loopButton.setStatus(status: MusicPlayer.getLoopStatus());
+        
+        print("viewDidLoad()");
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -129,11 +164,20 @@ class NewPlayerScreenViewController: UIViewController {
         updatePlayerScreen();
         
         prepareTitleView();
+        
+        print("viewWillAppear");
     }
     
     var animationsInitialized = false;
     
     override func viewDidLayoutSubviews() {
+        print("viewDidLayoutSubviews()");
+        if (!animationsInitialized) {
+            vinylImage.addRotateAnimation();
+            vinylLightImage.addSwingAnimation();
+            animationsInitialized = true;
+        }
+        
         /*if (!animationsInitialized) {
             for _ in 1...30 {
                 let noteView = MyImageView(image: UIImage(systemName: "music.note"));
@@ -153,7 +197,6 @@ class NewPlayerScreenViewController: UIViewController {
             animationsInitialized = true;
         }*/
     }
-
     
     private func addSwingAnimation(noteView: MyImageView) {
         let swingAnimation = CAKeyframeAnimation(keyPath: "transform.rotation");

@@ -92,14 +92,19 @@ class NewPlayerScreenViewController: UIViewController {
     @IBOutlet weak var hiddenVolumeSliderContainer: UIView!
     @IBOutlet weak var volumeSlider: UISlider!
     @IBOutlet weak var playerView: UIView!
+    @IBOutlet weak var controlsView: UIView!
+    @IBOutlet weak var titleView: UIView!
     @IBOutlet weak var artistLabel: UILabel!
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var albumLabel: UILabel!
     @IBOutlet weak var songIndexLabel: UILabel!
+    @IBOutlet weak var seekbarContainer: UIView!
     @IBOutlet weak var songSeekbar: UISlider!
     @IBOutlet weak var currentTimeLabel: UILabel!
     @IBOutlet weak var remainingTimeLabel: UILabel!
+    @IBOutlet weak var playPauseSkipContainer: UIView!
     @IBOutlet weak var playPauseButton: MyUIButton!
+    @IBOutlet weak var loopShuffleContainer: UIView!
     @IBOutlet weak var loopButton: LoopButton!
     @IBOutlet weak var shuffleButton: ShuffleButton!
     @IBOutlet weak var animationView: UIView!
@@ -108,9 +113,11 @@ class NewPlayerScreenViewController: UIViewController {
     @IBOutlet weak var vinylLightImage: MyImageView!
     
     @IBOutlet weak var artistLabelHeightConstraint: NSLayoutConstraint!
+    @IBOutlet weak var titleLabelHeightConstraint: NSLayoutConstraint!
     @IBOutlet weak var albumLabelHeightConstraint: NSLayoutConstraint!
+    @IBOutlet weak var songIndexLabelHeightConstraint: NSLayoutConstraint!
     @IBOutlet weak var titleViewHeightConstraint: NSLayoutConstraint!
-    
+
     var command = PlayerCommand.SHOW_PLAYER;
     var songList: [MPMediaItem] = [];
     var volumeView: MPVolumeView? = nil;
@@ -119,6 +126,8 @@ class NewPlayerScreenViewController: UIViewController {
     var wasPlayingBeforeSeek = false;
     var volumeBeingChangedManually = false;
     var volumeBeingChangedManuallyAsyncTask: DispatchWorkItem? = nil;
+    
+    var controlsContainerHeight: CGFloat = 0;
 
     var noteViews: [UIImageView] = [];
     var popAnims: [MyPopAnimation] = [];
@@ -162,20 +171,50 @@ class NewPlayerScreenViewController: UIViewController {
         };
         
         updatePlayerScreen();
-        
-        prepareTitleView();
-        
+                
         print("viewWillAppear");
     }
     
     var animationsInitialized = false;
+    var controlsResized = false;
     
     override func viewDidLayoutSubviews() {
         print("viewDidLayoutSubviews()");
+        /*print("controlsView height: ", controlsView.frame.height);
+        print("titleView height: ", titleView.frame.height);
+        print("seekbarContainer height: ", seekbarContainer.frame.height);
+        print("loopShuffleContainer height: ", loopShuffleContainer.frame.height);
+        print("playPauseSkipContainer height: ", playPauseSkipContainer.frame.height);
+        print("volumeSlider height: ", volumeSlider.frame.height);*/
         if (!animationsInitialized) {
+
             vinylImage.addRotateAnimation();
             vinylLightImage.addSwingAnimation();
             animationsInitialized = true;
+        }
+        
+        if (controlsContainerHeight != controlsView.frame.height) {
+            print("Boyut ayarlama gerekli!");
+            controlsContainerHeight = controlsView.frame.height;
+        } else {
+            if (!controlsResized) {
+                print("Boyut ayarlandı!");
+                print("controlsView height: ", controlsView.frame.height);
+                
+                var constantSizesTotal: CGFloat = 0;
+                constantSizesTotal += seekbarContainer.frame.height;
+                constantSizesTotal += loopShuffleContainer.frame.height;
+                constantSizesTotal += volumeSlider.frame.height;
+                print("constantSizesTotal: ", constantSizesTotal);
+                
+                let remainingSize = controlsView.frame.height - constantSizesTotal;
+                print("remainingSize: ", remainingSize);
+                
+                titleViewHeightConstraint.constant = remainingSize * 32.6 / 100;
+                prepareTitleView();
+                
+                controlsResized = true;
+            }
         }
         
         /*if (!animationsInitialized) {
@@ -213,14 +252,16 @@ class NewPlayerScreenViewController: UIViewController {
         
     private func prepareTitleView() {
         let titleViewHeight = titleViewHeightConstraint.constant;
-        let unitHeight = titleViewHeight / (1 + 1 + 1.2);
+        let unitHeight = titleViewHeight / (1 + 1 + 1.6 + 1);
         artistLabelHeightConstraint.constant = unitHeight;
         albumLabelHeightConstraint.constant = unitHeight;
+        songIndexLabelHeightConstraint.constant = unitHeight;
         
         let artistLabelHeight = unitHeight;
-        let titleLabelHeight = titleViewHeight - (unitHeight * 2);
+        let titleLabelHeight = titleViewHeight - (unitHeight * 3);
+        titleLabelHeightConstraint.constant = titleLabelHeight;
         
-        let initialFontSize = 5.0;
+        let initialFontSize = 0.5;
         let fontSizeIncreaseStep = 0.5;
                 
         var artistFontSize = initialFontSize;
@@ -240,8 +281,9 @@ class NewPlayerScreenViewController: UIViewController {
         }
         titleFont = UIFont(descriptor: titleLabel.font.fontDescriptor, size: CGFloat(titleFontSize - fontSizeIncreaseStep));
         titleLabel.font = titleFont;
-        
+
         albumLabel.font = artistFont;
+        songIndexLabel.font = artistFont;
     }
     
     override func viewWillDisappear(_ animated: Bool) {

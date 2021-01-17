@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		8800D9DE252A4F7C004D182E /* AlbumDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8800D9DD252A4F7C004D182E /* AlbumDetailsViewController.swift */; };
-		8803160C259778B9009EBCA2 /* NewPlayerScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8803160B259778B9009EBCA2 /* NewPlayerScreenViewController.swift */; };
+		8803160C259778B9009EBCA2 /* PlayerScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8803160B259778B9009EBCA2 /* PlayerScreenViewController.swift */; };
 		8805A4F824A51954009AF4D1 /* MusicPlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8805A4F724A51954009AF4D1 /* MusicPlayer.swift */; };
 		8805A4FC24A52DE6009AF4D1 /* SongList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8805A4FB24A52DE6009AF4D1 /* SongList.swift */; };
 		8809259F24A7D3F400DB1FC4 /* CustomUISlider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8809259E24A7D3F400DB1FC4 /* CustomUISlider.swift */; };
@@ -40,7 +40,7 @@
 
 /* Begin PBXFileReference section */
 		8800D9DD252A4F7C004D182E /* AlbumDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlbumDetailsViewController.swift; sourceTree = "<group>"; };
-		8803160B259778B9009EBCA2 /* NewPlayerScreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewPlayerScreenViewController.swift; sourceTree = "<group>"; };
+		8803160B259778B9009EBCA2 /* PlayerScreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerScreenViewController.swift; sourceTree = "<group>"; };
 		8805A4F724A51954009AF4D1 /* MusicPlayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MusicPlayer.swift; sourceTree = "<group>"; };
 		8805A4FB24A52DE6009AF4D1 /* SongList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SongList.swift; sourceTree = "<group>"; };
 		8809259E24A7D3F400DB1FC4 /* CustomUISlider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomUISlider.swift; sourceTree = "<group>"; };
@@ -113,7 +113,7 @@
 				88F24A1624F43846004930CB /* AlbumsOfArtistsViewController.swift */,
 				88959E71253619A700219ECE /* SongsOfArtistViewController.swift */,
 				881C87FC249A673200F3D92A /* AllSongsViewController.swift */,
-				8803160B259778B9009EBCA2 /* NewPlayerScreenViewController.swift */,
+				8803160B259778B9009EBCA2 /* PlayerScreenViewController.swift */,
 				881C87FE249A673200F3D92A /* Main.storyboard */,
 				88CE28A72587B9EB00164112 /* DenemeViewController.swift */,
 				88F634312540B39100A884B6 /* ShuffleButton.swift */,
@@ -237,7 +237,7 @@
 				882B448B258FCC7E00B67D85 /* ShuffleTheListButton.swift in Sources */,
 				881C87F7249A673200F3D92A /* AppDelegate.swift in Sources */,
 				88252E6B24A109E40035D95E /* AppGlobals.swift in Sources */,
-				8803160C259778B9009EBCA2 /* NewPlayerScreenViewController.swift in Sources */,
+				8803160C259778B9009EBCA2 /* PlayerScreenViewController.swift in Sources */,
 				8805A4F824A51954009AF4D1 /* MusicPlayer.swift in Sources */,
 				8805A4FC24A52DE6009AF4D1 /* SongList.swift in Sources */,
 				881C87F9249A673200F3D92A /* SceneDelegate.swift in Sources */,

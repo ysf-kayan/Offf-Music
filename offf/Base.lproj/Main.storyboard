@@ -39,10 +39,10 @@
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="ArtistCell" id="FZ8-mb-O4O" customClass="ArtistsTableArtistCell" customModule="Offf_Music" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="28" width="428" height="46.333332061767578"/>
+                                        <rect key="frame" x="0.0" y="28" width="428" height="46.666667938232422"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="FZ8-mb-O4O" id="s08-fC-sVC">
-                                            <rect key="frame" x="0.0" y="0.0" width="428" height="46.333332061767578"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="428" height="46.666667938232422"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="chevron.right" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="Wf5-d3-UMp">
@@ -55,7 +55,7 @@
                                                     <preferredSymbolConfiguration key="preferredSymbolConfiguration" weight="bold"/>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="e74-pL-08f" userLabel="Artist Label">
-                                                    <rect key="frame" x="6" y="11.999999999999998" width="416" height="22.333333333333329"/>
+                                                    <rect key="frame" x="6" y="12.000000000000002" width="416" height="22.666666666666671"/>
                                                     <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="18"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
@@ -114,20 +114,20 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="AlbumCell" id="68O-KY-Wns" customClass="AlbumsOfArtistTableAlbumCell" customModule="Offf_Music" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="28" width="428" height="46"/>
+                                <rect key="frame" x="0.0" y="28" width="428" height="46.333332061767578"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="68O-KY-Wns" id="XoK-bV-DG8">
-                                    <rect key="frame" x="0.0" y="0.0" width="428" height="46"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="428" height="46.333332061767578"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kb6-dm-HZS" userLabel="Album Label">
-                                            <rect key="frame" x="6" y="12" width="416" height="22"/>
+                                            <rect key="frame" x="6" y="11.999999999999998" width="416" height="22.333333333333329"/>
                                             <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="18"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="chevron.right" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="vb2-fI-HXi" userLabel="Right Arrow">
-                                            <rect key="frame" x="412" y="16.666666666666664" width="16" height="13.000000000000004"/>
+                                            <rect key="frame" x="412" y="17" width="16" height="13.000000000000004"/>
                                             <color key="tintColor" white="0.59637200342465757" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="16" id="BEi-TJ-zfl"/>
@@ -182,14 +182,14 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="SongCell" id="7Mw-dc-Qb4" customClass="AlbumDetailsTableAlbumCell" customModule="Offf_Music" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="28" width="428" height="43.333332061767578"/>
+                                <rect key="frame" x="0.0" y="28" width="428" height="43.666667938232422"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="7Mw-dc-Qb4" id="WWf-UU-BVX">
-                                    <rect key="frame" x="0.0" y="0.0" width="428" height="43.333332061767578"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="428" height="43.666667938232422"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Song Title Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yyD-XD-F1Z">
-                                            <rect key="frame" x="20" y="10.999999999999998" width="388" height="21.333333333333329"/>
+                                            <rect key="frame" x="20" y="11.000000000000002" width="388" height="21.666666666666671"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
@@ -248,17 +248,17 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="SongCell" id="jpl-ix-RzY" customClass="SongsOfArtistTableViewCell" customModule="Offf_Music" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="28" width="428" height="57"/>
+                                <rect key="frame" x="0.0" y="28" width="428" height="55.666667938232422"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="jpl-ix-RzY" id="DAC-xr-3d1">
-                                    <rect key="frame" x="0.0" y="0.0" width="428" height="57"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="428" height="55.666667938232422"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ILG-JJ-wVu" userLabel="Song Title View">
-                                            <rect key="frame" x="0.0" y="0.0" width="428" height="28.666666666666668"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="428" height="28"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Song Title Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aTA-Wq-NWf">
-                                                    <rect key="frame" x="6" y="6.0000000000000018" width="416" height="22.666666666666671"/>
+                                                    <rect key="frame" x="6" y="6" width="416" height="22"/>
                                                     <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="18"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
@@ -272,10 +272,10 @@
                                             </constraints>
                                         </view>
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gIu-az-Uyd" userLabel="Artist Album View">
-                                            <rect key="frame" x="0.0" y="28.666666666666671" width="428" height="28.333333333333329"/>
+                                            <rect key="frame" x="0.0" y="28" width="428" height="27.666666666666671"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Artist Album Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2SX-ej-hgm">
-                                                    <rect key="frame" x="6" y="0.0" width="416" height="22.333333333333332"/>
+                                                    <rect key="frame" x="6" y="0.0" width="416" height="21.666666666666668"/>
                                                     <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="13"/>
                                                     <color key="textColor" red="0.57045853140000002" green="0.57047235969999999" blue="0.57046490910000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <nil key="highlightedColor"/>
@@ -289,7 +289,7 @@
                                             </constraints>
                                         </view>
                                         <view opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lkx-1U-D7a" userLabel="Equalizer Placeholder">
-                                            <rect key="frame" x="403" y="16" width="25" height="25"/>
+                                            <rect key="frame" x="403" y="15.333333333333336" width="25" height="25"/>
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <constraints>
                                                 <constraint firstAttribute="width" constant="25" id="iq0-wu-2sM"/>
@@ -407,14 +407,14 @@
                                 <rect key="frame" x="0.0" y="0.0" width="317" height="312"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="PlainCell" id="lPp-Rd-81G" customClass="AllSongsTableViewCell" customModule="Offf_Music" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="28" width="317" height="55.666667938232422"/>
+                                        <rect key="frame" x="0.0" y="28" width="317" height="56.333332061767578"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="lPp-Rd-81G" id="Xhc-9j-gZd">
-                                            <rect key="frame" x="0.0" y="0.0" width="317" height="55.666667938232422"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="317" height="56.333332061767578"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="VQW-hR-LRY" userLabel="Equalizer Placeholder">
-                                                    <rect key="frame" x="292" y="15.333333333333336" width="25" height="25"/>
+                                                    <rect key="frame" x="292" y="15.666666666666664" width="25" height="25"/>
                                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <color key="tintColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="displayP3"/>
                                                     <constraints>
@@ -423,10 +423,10 @@
                                                     </constraints>
                                                 </view>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="txq-Ud-VfA" userLabel="Song Title View">
-                                                    <rect key="frame" x="0.0" y="0.0" width="317" height="28"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="317" height="28.333333333333332"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Song Title Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zcp-T4-mrI">
-                                                            <rect key="frame" x="6" y="6" width="305" height="22"/>
+                                                            <rect key="frame" x="6" y="5.9999999999999982" width="305" height="22.333333333333329"/>
                                                             <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="18"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
@@ -440,10 +440,10 @@
                                                     </constraints>
                                                 </view>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ob9-Jg-KF4" userLabel="Artist Album View">
-                                                    <rect key="frame" x="0.0" y="28" width="317" height="27.666666666666671"/>
+                                                    <rect key="frame" x="0.0" y="28.333333333333329" width="317" height="28"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Artist Album Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cgO-NE-7w3">
-                                                            <rect key="frame" x="6" y="0.0" width="305" height="21.666666666666668"/>
+                                                            <rect key="frame" x="6" y="0.0" width="305" height="22"/>
                                                             <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="13"/>
                                                             <color key="textColor" red="0.57045853140000002" green="0.57047235969999999" blue="0.57046490910000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                             <nil key="highlightedColor"/>
@@ -508,10 +508,10 @@
             </objects>
             <point key="canvasLocation" x="1633" y="356"/>
         </scene>
-        <!--New Player-->
+        <!--Player-->
         <scene sceneID="Op4-Cy-4TL">
             <objects>
-                <viewController hidesBottomBarWhenPushed="YES" id="Jm5-sO-fk4" userLabel="New Player" customClass="NewPlayerScreenViewController" customModule="Offf_Music" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController hidesBottomBarWhenPushed="YES" id="Jm5-sO-fk4" userLabel="Player" customClass="PlayerScreenViewController" customModule="Offf_Music" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="mls-hB-Ser">
                         <rect key="frame" x="0.0" y="0.0" width="428" height="838"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

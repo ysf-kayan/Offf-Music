@@ -102,7 +102,7 @@ class AlbumDetailsViewController: UITableViewController {
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "playFromAlbum" {
-            let dest = segue.destination as! NewPlayerScreenViewController;
+            let dest = segue.destination as! PlayerScreenViewController;
             dest.command = playerScreenCommand;
             if (playerScreenCommand == PlayerCommand.PLAY_NEW_LIST) {
                 dest.songList = songs;

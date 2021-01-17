@@ -1,5 +1,5 @@
 //
-//  NewPlayerScreenViewController.swift
+//  PlayerScreenViewController.swift
 //  offf
 //
 //  Created by Yusuf Kayan on 26.12.2020.
@@ -86,7 +86,7 @@ class MyImageView: UIImageView, CAAnimationDelegate {
     }*/
 }
 
-class NewPlayerScreenViewController: UIViewController {
+class PlayerScreenViewController: UIViewController {
 
     
     @IBOutlet weak var hiddenVolumeSliderContainer: UIView!

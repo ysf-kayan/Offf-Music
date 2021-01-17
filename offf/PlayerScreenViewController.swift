@@ -28,7 +28,7 @@ class MyImageView: UIImageView, CAAnimationDelegate {
         rotateAnimation.repeatCount = Float.infinity;
         rotateAnimation.delegate = self;
         
-        self.layer.add(rotateAnimation, forKey: nil);
+        self.layer.add(rotateAnimation, forKey: "rotate");
     }
     
     public func addSwingAnimation() {
@@ -41,11 +41,16 @@ class MyImageView: UIImageView, CAAnimationDelegate {
         swingAnimation.calculationMode = .cubic;
         swingAnimation.delegate = self;
         
-        self.layer.add(swingAnimation, forKey: nil);
+        self.layer.add(swingAnimation, forKey: "swing");
     }
     
     func animationDidStop(_ anim: CAAnimation, finished flag: Bool) {
         print("animation stopped");
+    }
+    
+    public func removeAnimations() {
+        self.layer.removeAnimation(forKey: "rotate");
+        self.layer.removeAnimation(forKey: "swing");
     }
     
     /*public func addPopAnimation(noteView: MyImageView) {
@@ -72,18 +77,7 @@ class MyImageView: UIImageView, CAAnimationDelegate {
         
         noteView.layer.add(moveAnimation, forKey: "move");
     }
-    
-    func animationDidStop(_ anim: CAAnimation, finished flag: Bool) {
-        if (flag) {
-            if (anim is MyPopAnimation) {
-                self.layer.removeAnimation(forKey: "pop");
-                addMoveAnimation(noteView: self);
-            } else {
-                self.layer.removeAnimation(forKey: "move");
-                addPopAnimation(noteView: self);
-            }
-        }
-    }*/
+     */
 }
 
 class PlayerScreenViewController: UIViewController {
@@ -136,9 +130,6 @@ class PlayerScreenViewController: UIViewController {
     var animationsInitialized = false;
     var controlsContainerHeight: CGFloat = 0;
     var controlsResized = false;
-
-    var noteViews: [UIImageView] = [];
-    var popAnims: [MyPopAnimation] = [];
     
     override func viewDidLoad() {
         super.viewDidLoad();
@@ -160,8 +151,17 @@ class PlayerScreenViewController: UIViewController {
         shuffleButton.setStatus(status: MusicPlayer.getShuffleStatus());
         loopButton.setStatus(status: MusicPlayer.getLoopStatus());
         
-        print("viewDidLoad()");
+        NotificationCenter.default.addObserver(self, selector: #selector(restartAnimationsAfterEnteringForeground), name: UIApplication.willEnterForegroundNotification, object: nil);
         
+    
+        print("viewDidLoad()");
+    }
+    
+    @objc private func restartAnimationsAfterEnteringForeground() {
+        vinylImage.removeAnimations();
+        vinylLightImage.removeAnimations();
+        vinylImage.addRotateAnimation();
+        vinylLightImage.addSwingAnimation();
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -172,13 +172,13 @@ class PlayerScreenViewController: UIViewController {
         let timeScale = CMTimeScale(NSEC_PER_SEC);
         let time = CMTime(seconds: 0.5, preferredTimescale: timeScale);
         
-        timeObserverToken = MusicPlayer.getPlayer().addPeriodicTimeObserver(forInterval: time, queue: .main) { time in
-            if (!self.seeking) {
-                self.updatePlaybackTimeLabels(seconds: Int(time.seconds));
-                self.updateSeekbarPos(seconds: Int(time.seconds));
+        timeObserverToken = MusicPlayer.getPlayer().addPeriodicTimeObserver(forInterval: time, queue: .main) { [weak self] time in
+            if (!self!.seeking) {
+                self!.updatePlaybackTimeLabels(seconds: Int(time.seconds));
+                self!.updateSeekbarPos(seconds: Int(time.seconds));
             }
         };
-        
+                
         updatePlayerScreen();
         print("viewWillAppear");
     }
@@ -285,7 +285,9 @@ class PlayerScreenViewController: UIViewController {
         navigationController?.navigationBar.shadowImage = nil;
         
         MusicPlayer.getPlayer().removeTimeObserver(timeObserverToken!);
+        NotificationCenter.default.removeObserver(self, name: Notification.Name(AppGlobals.UPDATE_PLAYER_SCREEN), object: nil);
         AVAudioSession.sharedInstance().removeObserver(self, forKeyPath: "outputVolume");
+        NotificationCenter.default.removeObserver(self, name: UIApplication.willEnterForegroundNotification, object: nil);
     }
     
     @IBAction func volumeSliderValueChanged(_ sender: UISlider) {
@@ -474,5 +476,9 @@ class PlayerScreenViewController: UIViewController {
         dict["s"] = seconds;
         
         return dict;
+    }
+    
+    deinit {
+        print("PlayerScreenViewController deinit()");
     }
 }

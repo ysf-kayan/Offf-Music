@@ -30,6 +30,17 @@
          </PersistentStrings>
       </ContextState>
       <ContextState
+         contextName = "static MusicPlayer.setCurrentItem():MusicPlayer.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "queue[getCurrentItemIndex()].title">
+            </PersistentString>
+            <PersistentString
+               value = "queue[2].title">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
          contextName = "static AppGlobals.saveLastPosInfoOfSong(song:pos:):AppGlobals.swift">
       </ContextState>
       <ContextState
@@ -41,9 +52,6 @@
          </PersistentStrings>
       </ContextState>
       <ContextState
-         contextName = "SongsOfArtistViewController.shuffleButtonClicked():SongsOfArtistViewController.swift">
-      </ContextState>
-      <ContextState
          contextName = "static AppGlobals.playbackStateDidChange(notification:):AppGlobals.swift">
          <PersistentStrings>
             <PersistentString
@@ -52,15 +60,7 @@
          </PersistentStrings>
       </ContextState>
       <ContextState
-         contextName = "static MusicPlayer.setCurrentItem():MusicPlayer.swift">
-         <PersistentStrings>
-            <PersistentString
-               value = "queue[getCurrentItemIndex()].title">
-            </PersistentString>
-            <PersistentString
-               value = "queue[2].title">
-            </PersistentString>
-         </PersistentStrings>
+         contextName = "SongsOfArtistViewController.shuffleButtonClicked():SongsOfArtistViewController.swift">
       </ContextState>
       <ContextState
          contextName = "PlayerScreenTitleView.commonInit():PlayerScreenTitleView.swift">
@@ -83,6 +83,17 @@
          <PersistentStrings>
             <PersistentString
                value = "song.title">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "NewPlayerScreenViewController.viewDidLayoutSubviews():NewPlayerScreenViewController.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "titleViewHeightConstraint.constant">
+            </PersistentString>
+            <PersistentString
+               value = "controlsView.frame.height">
             </PersistentString>
          </PersistentStrings>
       </ContextState>
@@ -123,10 +134,10 @@
                value = "structuredSongList[&quot;ASMR&quot;];">
             </PersistentString>
             <PersistentString
-               value = "structuredSongList[&quot;Pilli Bebek&quot;];">
+               value = "SongList.artistsSectionStructure">
             </PersistentString>
             <PersistentString
-               value = "SongList.artistsSectionStructure">
+               value = "structuredSongList[&quot;Pilli Bebek&quot;];">
             </PersistentString>
          </PersistentStrings>
       </ContextState>
@@ -158,10 +169,10 @@
          contextName = "AppDelegate.application(_:didFinishLaunchingWithOptions:):AppDelegate.swift">
          <PersistentStrings>
             <PersistentString
-               value = "query.items.count">
+               value = "lastyPosDict.keys[0]">
             </PersistentString>
             <PersistentString
-               value = "lastyPosDict.keys[0]">
+               value = "query.items.count">
             </PersistentString>
          </PersistentStrings>
       </ContextState>

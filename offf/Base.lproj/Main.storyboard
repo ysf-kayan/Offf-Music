@@ -182,14 +182,14 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="SongCell" id="7Mw-dc-Qb4" customClass="AlbumDetailsTableAlbumCell" customModule="Offf_Music" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="28" width="428" height="43.666667938232422"/>
+                                <rect key="frame" x="0.0" y="28" width="428" height="43.333332061767578"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="7Mw-dc-Qb4" id="WWf-UU-BVX">
-                                    <rect key="frame" x="0.0" y="0.0" width="428" height="43.666667938232422"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="428" height="43.333332061767578"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Song Title Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yyD-XD-F1Z">
-                                            <rect key="frame" x="20" y="11.000000000000002" width="388" height="21.666666666666671"/>
+                                            <rect key="frame" x="20" y="10.999999999999998" width="388" height="21.333333333333329"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
@@ -530,22 +530,58 @@
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="YIk-y4-zaA" userLabel="Animation View">
                                         <rect key="frame" x="10" y="10" width="408" height="392"/>
                                         <subviews>
-                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="vinyl" translatesAutoresizingMaskIntoConstraints="NO" id="aix-hE-vYk" customClass="MyImageView" customModule="Offf_Music" customModuleProvider="target">
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="WaT-0d-Bsx" userLabel="Vinyl 1 Container">
                                                 <rect key="frame" x="15" y="15" width="378" height="362"/>
-                                            </imageView>
-                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="vinyl-light" translatesAutoresizingMaskIntoConstraints="NO" id="4kt-Wd-nVk" userLabel="Vinyl Light Image" customClass="MyImageView" customModule="Offf_Music" customModuleProvider="target">
+                                                <subviews>
+                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="vinyl" translatesAutoresizingMaskIntoConstraints="NO" id="aix-hE-vYk" userLabel="Vinyl 1 Image">
+                                                        <rect key="frame" x="0.0" y="0.0" width="378" height="362"/>
+                                                    </imageView>
+                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="vinyl-light" translatesAutoresizingMaskIntoConstraints="NO" id="4kt-Wd-nVk" userLabel="Vinyl 1 Light Image">
+                                                        <rect key="frame" x="0.0" y="0.0" width="378" height="362"/>
+                                                    </imageView>
+                                                </subviews>
+                                                <constraints>
+                                                    <constraint firstItem="4kt-Wd-nVk" firstAttribute="top" secondItem="aix-hE-vYk" secondAttribute="top" id="DJ9-oK-gtT"/>
+                                                    <constraint firstItem="4kt-Wd-nVk" firstAttribute="leading" secondItem="aix-hE-vYk" secondAttribute="leading" id="Rg2-L7-TLm"/>
+                                                    <constraint firstItem="4kt-Wd-nVk" firstAttribute="bottom" secondItem="aix-hE-vYk" secondAttribute="bottom" id="XTq-1X-YFB"/>
+                                                    <constraint firstItem="aix-hE-vYk" firstAttribute="bottom" secondItem="WaT-0d-Bsx" secondAttribute="bottom" id="d4j-uG-8OT"/>
+                                                    <constraint firstItem="aix-hE-vYk" firstAttribute="leading" secondItem="WaT-0d-Bsx" secondAttribute="leading" id="eg0-l6-7Hh"/>
+                                                    <constraint firstItem="aix-hE-vYk" firstAttribute="trailing" secondItem="WaT-0d-Bsx" secondAttribute="trailing" id="mPp-uI-LN8"/>
+                                                    <constraint firstItem="4kt-Wd-nVk" firstAttribute="trailing" secondItem="aix-hE-vYk" secondAttribute="trailing" id="ogd-Eo-p92"/>
+                                                    <constraint firstItem="aix-hE-vYk" firstAttribute="top" secondItem="WaT-0d-Bsx" secondAttribute="top" id="roy-OI-xAL"/>
+                                                </constraints>
+                                            </view>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yz2-MF-DaW" userLabel="Vinyl 2 Container">
                                                 <rect key="frame" x="15" y="15" width="378" height="362"/>
-                                            </imageView>
+                                                <subviews>
+                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="vinyl" translatesAutoresizingMaskIntoConstraints="NO" id="IDE-5b-GuU" userLabel="Vinyl 2 Image">
+                                                        <rect key="frame" x="0.0" y="0.0" width="378" height="362"/>
+                                                    </imageView>
+                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="vinyl-light" translatesAutoresizingMaskIntoConstraints="NO" id="czH-pn-YTa" userLabel="Vinyl 2 Light Image">
+                                                        <rect key="frame" x="0.0" y="0.0" width="378" height="362"/>
+                                                    </imageView>
+                                                </subviews>
+                                                <constraints>
+                                                    <constraint firstItem="czH-pn-YTa" firstAttribute="leading" secondItem="IDE-5b-GuU" secondAttribute="leading" id="CZB-BL-GGE"/>
+                                                    <constraint firstItem="IDE-5b-GuU" firstAttribute="trailing" secondItem="yz2-MF-DaW" secondAttribute="trailing" id="HOw-Yv-tZH"/>
+                                                    <constraint firstItem="czH-pn-YTa" firstAttribute="bottom" secondItem="IDE-5b-GuU" secondAttribute="bottom" id="JPI-nG-gdO"/>
+                                                    <constraint firstItem="IDE-5b-GuU" firstAttribute="bottom" secondItem="yz2-MF-DaW" secondAttribute="bottom" id="bLo-1W-5IC"/>
+                                                    <constraint firstItem="IDE-5b-GuU" firstAttribute="top" secondItem="yz2-MF-DaW" secondAttribute="top" id="d5n-Qs-uu8"/>
+                                                    <constraint firstItem="czH-pn-YTa" firstAttribute="trailing" secondItem="IDE-5b-GuU" secondAttribute="trailing" id="ov8-xj-m5j"/>
+                                                    <constraint firstItem="czH-pn-YTa" firstAttribute="top" secondItem="IDE-5b-GuU" secondAttribute="top" id="red-IJ-Mef"/>
+                                                    <constraint firstItem="IDE-5b-GuU" firstAttribute="leading" secondItem="yz2-MF-DaW" secondAttribute="leading" id="ukw-V8-JAj"/>
+                                                </constraints>
+                                            </view>
                                         </subviews>
                                         <constraints>
-                                            <constraint firstItem="aix-hE-vYk" firstAttribute="top" secondItem="YIk-y4-zaA" secondAttribute="top" constant="15" id="3OB-YP-opq"/>
-                                            <constraint firstItem="4kt-Wd-nVk" firstAttribute="leading" secondItem="aix-hE-vYk" secondAttribute="leading" id="9UM-nr-0TA"/>
-                                            <constraint firstItem="aix-hE-vYk" firstAttribute="trailing" secondItem="YIk-y4-zaA" secondAttribute="trailing" constant="-15" id="IOG-na-FaY"/>
-                                            <constraint firstItem="4kt-Wd-nVk" firstAttribute="top" secondItem="aix-hE-vYk" secondAttribute="top" id="Ijx-9K-1pD"/>
-                                            <constraint firstItem="4kt-Wd-nVk" firstAttribute="trailing" secondItem="aix-hE-vYk" secondAttribute="trailing" id="Mw0-03-aA0"/>
-                                            <constraint firstItem="aix-hE-vYk" firstAttribute="bottom" secondItem="YIk-y4-zaA" secondAttribute="bottom" constant="-15" id="Sw2-Ix-Xo9"/>
-                                            <constraint firstItem="aix-hE-vYk" firstAttribute="leading" secondItem="YIk-y4-zaA" secondAttribute="leading" constant="15" id="guD-yZ-lyF"/>
-                                            <constraint firstItem="4kt-Wd-nVk" firstAttribute="bottom" secondItem="aix-hE-vYk" secondAttribute="bottom" id="hwe-yV-IPC"/>
+                                            <constraint firstItem="WaT-0d-Bsx" firstAttribute="bottom" secondItem="YIk-y4-zaA" secondAttribute="bottom" constant="-15" id="9Ls-KY-WTx"/>
+                                            <constraint firstItem="WaT-0d-Bsx" firstAttribute="top" secondItem="YIk-y4-zaA" secondAttribute="top" constant="15" id="CCO-Nh-Uzh"/>
+                                            <constraint firstItem="WaT-0d-Bsx" firstAttribute="leading" secondItem="YIk-y4-zaA" secondAttribute="leading" constant="15" id="CwB-Bx-0Xd"/>
+                                            <constraint firstItem="yz2-MF-DaW" firstAttribute="trailing" secondItem="YIk-y4-zaA" secondAttribute="trailing" constant="-15" id="LYu-q7-O0N"/>
+                                            <constraint firstItem="WaT-0d-Bsx" firstAttribute="trailing" secondItem="YIk-y4-zaA" secondAttribute="trailing" constant="-15" id="ULe-OG-3Kc"/>
+                                            <constraint firstItem="yz2-MF-DaW" firstAttribute="bottom" secondItem="YIk-y4-zaA" secondAttribute="bottom" constant="-15" id="fpa-Uz-X8X"/>
+                                            <constraint firstItem="yz2-MF-DaW" firstAttribute="leading" secondItem="YIk-y4-zaA" secondAttribute="leading" constant="15" id="kY0-sk-R97"/>
+                                            <constraint firstItem="yz2-MF-DaW" firstAttribute="top" secondItem="YIk-y4-zaA" secondAttribute="top" constant="15" id="r2U-zI-Zrb"/>
                                         </constraints>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="UJk-0k-EXU" userLabel="Controls">
@@ -903,8 +939,12 @@
                         <outlet property="titleLabelHeightConstraint" destination="Lit-7a-7rz" id="YhH-ic-vKd"/>
                         <outlet property="titleView" destination="cuP-uV-PHB" id="2B8-1U-w3i"/>
                         <outlet property="titleViewHeightConstraint" destination="Amm-Mj-LVj" id="9sb-0e-UyQ"/>
-                        <outlet property="vinylImage" destination="aix-hE-vYk" id="4Tw-ym-saN"/>
-                        <outlet property="vinylLightImage" destination="4kt-Wd-nVk" id="OKT-lE-5Ht"/>
+                        <outlet property="vinyl1Container" destination="WaT-0d-Bsx" id="d6L-Qm-rbu"/>
+                        <outlet property="vinyl1Image" destination="aix-hE-vYk" id="bEq-aZ-Nah"/>
+                        <outlet property="vinyl1LightImage" destination="4kt-Wd-nVk" id="ddT-Xe-Vpn"/>
+                        <outlet property="vinyl2Container" destination="yz2-MF-DaW" id="Fq2-Wb-YIs"/>
+                        <outlet property="vinyl2Image" destination="IDE-5b-GuU" id="dei-JR-K1B"/>
+                        <outlet property="vinyl2LightImage" destination="czH-pn-YTa" id="KfR-GC-MV0"/>
                         <outlet property="volumeSlider" destination="3Ak-bx-UWO" id="Kle-Vf-urG"/>
                     </connections>
                 </viewController>

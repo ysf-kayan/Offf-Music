@@ -9,76 +9,18 @@
 import UIKit
 import MediaPlayer
 
+
 enum PlayerCommand {
     case PLAY_NEW_LIST
     case SHOW_PLAYER
 }
 
-class MyPopAnimation: CABasicAnimation {
+enum Direction {
+    case LEFT
+    case RIGHT
 }
 
-class MyImageView: UIImageView, CAAnimationDelegate {
-    
-    public func addRotateAnimation() {
-        let rotateAnimation = CABasicAnimation(keyPath: "transform.rotation");
-        rotateAnimation.fromValue = 0;
-        rotateAnimation.toValue = Double.pi * 2;
-        rotateAnimation.duration = 5;
-        rotateAnimation.fillMode = .forwards;
-        rotateAnimation.repeatCount = Float.infinity;
-        rotateAnimation.delegate = self;
-        
-        self.layer.add(rotateAnimation, forKey: "rotate");
-    }
-    
-    public func addSwingAnimation() {
-        let swingAnimation = CAKeyframeAnimation(keyPath: "transform.rotation");
-        swingAnimation.values = [0, Double.pi * 0.03, 0, -Double.pi * 0.03, 0];
-        swingAnimation.duration = 5;
-        swingAnimation.fillMode = .forwards;
-        swingAnimation.isRemovedOnCompletion = true;
-        swingAnimation.repeatCount = Float.infinity;
-        swingAnimation.calculationMode = .cubic;
-        swingAnimation.delegate = self;
-        
-        self.layer.add(swingAnimation, forKey: "swing");
-    }
-    
-    func animationDidStop(_ anim: CAAnimation, finished flag: Bool) {
-        print("animation stopped");
-    }
-    
-    public func removeAnimations() {
-        self.layer.removeAnimation(forKey: "rotate");
-        self.layer.removeAnimation(forKey: "swing");
-    }
-    
-    /*public func addPopAnimation(noteView: MyImageView) {
-        let popAnimation = MyPopAnimation(keyPath: "transform.scale");
-        popAnimation.fromValue = 0;
-        popAnimation.toValue = 1;
-        popAnimation.duration = Double.random(in: 0.5...10);
-        popAnimation.fillMode = .forwards;
-        popAnimation.isRemovedOnCompletion = true;
-        popAnimation.delegate = noteView;
-        
-        self.tintColor = UIColor.init(red: CGFloat.random(in: 0.0...1.0), green: CGFloat.random(in: 0.0...1.0), blue: CGFloat.random(in: 0.0...1.0), alpha: 1.0);
-        
-        noteView.layer.add(popAnimation, forKey: "pop");
-    }
-    
-    public func addMoveAnimation(noteView: MyImageView) {
-        let moveAnimation = CAKeyframeAnimation(keyPath: "position.y");
-        moveAnimation.values = [self.frame.origin.y + self.frame.height / 2, 900];
-        moveAnimation.duration = Double.random(in: 3.0...15.0);
-        moveAnimation.fillMode = .forwards;
-        moveAnimation.isRemovedOnCompletion = false;
-        moveAnimation.delegate = noteView;
-        
-        noteView.layer.add(moveAnimation, forKey: "move");
-    }
-     */
-}
+let swingAnimConstant: Float = 0.1;
 
 class PlayerScreenViewController: UIViewController {
 
@@ -105,8 +47,14 @@ class PlayerScreenViewController: UIViewController {
     @IBOutlet weak var previousButtonImage: UIImageView!
     @IBOutlet weak var playPauseButtonImage: UIImageView!
     
-    @IBOutlet weak var vinylImage: MyImageView!
-    @IBOutlet weak var vinylLightImage: MyImageView!
+    
+    @IBOutlet weak var vinyl1Container: UIView!
+    @IBOutlet weak var vinyl1Image: UIImageView!
+    @IBOutlet weak var vinyl1LightImage: UIImageView!
+    @IBOutlet weak var vinyl2Container: UIView!
+    @IBOutlet weak var vinyl2Image: UIImageView!
+    @IBOutlet weak var vinyl2LightImage: UIImageView!
+    
     
     @IBOutlet weak var artistLabelHeightConstraint: NSLayoutConstraint!
     @IBOutlet weak var titleLabelHeightConstraint: NSLayoutConstraint!
@@ -130,6 +78,9 @@ class PlayerScreenViewController: UIViewController {
     var animationsInitialized = false;
     var controlsContainerHeight: CGFloat = 0;
     var controlsResized = false;
+    
+    var vinylAnimator: UIViewPropertyAnimator!;
+    var lightAnimator: UIViewPropertyAnimator!;
     
     override func viewDidLoad() {
         super.viewDidLoad();
@@ -157,11 +108,56 @@ class PlayerScreenViewController: UIViewController {
         print("viewDidLoad()");
     }
     
+    private func rotateVinyl(animCount: Int) {
+        vinylAnimator = UIViewPropertyAnimator(duration: TimeInterval(animCount * 5), curve: .linear, animations: nil);
+
+        vinylAnimator.addAnimations {
+            for _ in 1...animCount {
+                self.vinyl2Image.transform = self.vinyl2Image.transform.rotated(by: CGFloat.pi);
+            }
+        }
+        
+        vinylAnimator.addCompletion { (_) in
+            self.rotateVinyl(animCount: animCount);
+        }
+        
+        vinylAnimator.startAnimation();
+    }
+    
+    private func swingLight(backward: Bool) {
+        lightAnimator = UIViewPropertyAnimator(duration: 2.5, curve: .easeInOut, animations: nil);
+        
+        lightAnimator.addAnimations {
+            let deg = backward ? Float.pi * swingAnimConstant : -Float.pi * swingAnimConstant;
+            self.vinyl2LightImage.transform = self.vinyl2LightImage.transform.rotated(by: CGFloat(deg));
+        }
+        
+        lightAnimator.addCompletion { (_) in
+            self.swingLight(backward: !backward);
+        }
+        
+        lightAnimator.startAnimation();
+    }
+    
     @objc private func restartAnimationsAfterEnteringForeground() {
-        vinylImage.removeAnimations();
-        vinylLightImage.removeAnimations();
-        vinylImage.addRotateAnimation();
-        vinylLightImage.addSwingAnimation();
+        if (MusicPlayer.getPlaybackState() == .PLAYING) {
+            //resumeVinylPlayingAnimation();
+        }
+    }
+        
+    private func startVinylPlayingAnimation() {
+        rotateVinyl(animCount: 1);
+        swingLight(backward: false);
+    }
+    
+    private func resumeVinylPlayingAnimation() {
+        vinylAnimator.continueAnimation(withTimingParameters: vinylAnimator.timingParameters, durationFactor: 1 - vinylAnimator.fractionComplete);
+        lightAnimator.continueAnimation(withTimingParameters: lightAnimator.timingParameters, durationFactor: 1 - lightAnimator.fractionComplete);
+    }
+    
+    private func stopVinylPlayingAnimation() {
+        vinylAnimator.pauseAnimation();
+        lightAnimator.pauseAnimation();
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -186,8 +182,9 @@ class PlayerScreenViewController: UIViewController {
     override func viewDidLayoutSubviews() {
         //print("viewDidLayoutSubviews()");
         if (!animationsInitialized) {
-            vinylImage.addRotateAnimation();
-            vinylLightImage.addSwingAnimation();
+            if (MusicPlayer.getPlaybackState() == .PLAYING) {
+                startVinylPlayingAnimation();
+            }
             animationsInitialized = true;
         }
         
@@ -224,26 +221,6 @@ class PlayerScreenViewController: UIViewController {
             
             controlsResized = true;
         }
-        
-        
-        /*if (!animationsInitialized) {
-            for _ in 1...30 {
-                let noteView = MyImageView(image: UIImage(systemName: "music.note"));
-                noteView.tintColor = UIColor.systemGray;
-                noteView.frame = CGRect(x: Int.random(in: 30...Int(animationView.frame.width) - 30), y: 30, width: 30, height: 30);
-                noteViews.append(noteView);
-            }
-            
-            noteViews.forEach { (noteView) in
-                animationView.addSubview(noteView);
-                (noteView as! MyImageView).addPopAnimation(noteView: noteView as! MyImageView);
-                /*DispatchQueue.main.asyncAfter(deadline: .now() + Double.random(in: 0.1...5)) {
-                    (noteView as! MyImageView).addMoveAnimation(noteView: noteView as! MyImageView);
-                }*/
-                addSwingAnimation(noteView: noteView as! MyImageView);
-            }
-            animationsInitialized = true;
-        }*/
     }
         
     private func prepareTitleView() {
@@ -314,6 +291,15 @@ class PlayerScreenViewController: UIViewController {
     
     @IBAction func nextButtonClicked(_ sender: UITapGestureRecognizer) {
         MusicPlayer.nextTrack(skippedByUser: true);
+        
+        let vinyl1Anim = createVinylMoveAnimation(values: [vinyl1Container.frame.origin.x + vinyl1Container.frame.width / 2, -(10 + vinyl1Container.frame.width / 2)]);
+        vinyl1Container.layer.add(vinyl1Anim, forKey: "moveLeft");
+        
+        let vinyl2InitialX = (vinyl2Container.frame.origin.x + vinyl2Container.frame.width / 2) + vinyl2Container.frame.width + 25;
+        let vinyl2NewX = vinyl2Container.frame.origin.x + vinyl2Container.frame.width / 2;
+        let vinyl2Anim = createVinylMoveAnimation(values: [vinyl2InitialX, vinyl2NewX]);
+        
+        vinyl2Container.layer.add(vinyl2Anim, forKey: "moveLeft");
     }
     
     @IBAction func nextButtonLongPress(_ sender: UILongPressGestureRecognizer) {
@@ -324,12 +310,48 @@ class PlayerScreenViewController: UIViewController {
     
     @IBAction func previousButtonClicked(_ sender: UITapGestureRecognizer) {
         MusicPlayer.previousTrack();
+        
+        let vinyl1Anim = createVinylMoveAnimation(values: [-(10 + vinyl1Container.frame.width / 2), vinyl1Container.frame.origin.x + vinyl1Container.frame.width / 2]);
+        vinyl1Container.layer.add(vinyl1Anim, forKey: "moveRight");
+        
+        let vinyl2InitialX = (vinyl2Container.frame.origin.x + vinyl2Container.frame.width / 2) + vinyl2Container.frame.width + 25;
+        let vinyl2NewX = vinyl2Container.frame.origin.x + vinyl2Container.frame.width / 2;
+        let vinyl2Anim = createVinylMoveAnimation(values: [vinyl2NewX, vinyl2InitialX]);
+        
+        vinyl2Container.layer.add(vinyl2Anim, forKey: "moveRight");
     }
+    
+    private func moveVinyls(direction: Direction) {
+        
+        let vinyl1X1 = vinyl1Container.frame.origin.x + vinyl1Container.frame.width / 2;
+        let vinyl1X2 = -(10 + vinyl1Container.frame.width / 2);
+        
+        var vinyl1Anim: CAAnimation?;
+        if (direction == Direction.LEFT) {
+            vinyl1Anim = createVinylMoveAnimation(values: [vinyl1X1, vinyl1X2]);
+        } else if (direction == Direction.RIGHT) {
+            vinyl1Anim = createVinylMoveAnimation(values: [vinyl1X2, vinyl1X1]);
+        }
+        vinyl1Container.layer.add(vinyl1Anim!, forKey: direction == Direction.LEFT ? "moveLeft" : "moveRight");
+        
+        let vinyl2X1 = (vinyl2Container.frame.origin.x + vinyl2Container.frame.width / 2) + vinyl2Container.frame.width + 25;
+        let vinyl2X2 = vinyl2Container.frame.origin.x + vinyl2Container.frame.width / 2;
+        var vinyl2Anim: CAAnimation?;
+        if (direction == Direction.LEFT) {
+            vinyl2Anim = createVinylMoveAnimation(values: [vinyl2X1, vinyl2X2]);
+        } else if (direction == Direction.RIGHT) {
+            vinyl2Anim = createVinylMoveAnimation(values: [vinyl2X2, vinyl2X1]);
+        }
+        vinyl2Container.layer.add(vinyl2Anim!, forKey: direction == Direction.LEFT ? "moveLeft" : "moveRight");
+    }
+    
     @IBAction func playPauseClicked(_ sender: MyUIButton) {
         if (MusicPlayer.getPlaybackState() == .PLAYING) {
             MusicPlayer.pause();
+            stopVinylPlayingAnimation();
         } else {
             MusicPlayer.resume();
+            resumeVinylPlayingAnimation();
         }
         setPlayPauseButtonState();
     }
@@ -476,6 +498,15 @@ class PlayerScreenViewController: UIViewController {
         dict["s"] = seconds;
         
         return dict;
+    }
+    
+    public func createVinylMoveAnimation(values: [CGFloat]) -> CAKeyframeAnimation {
+        let moveAnimation = CAKeyframeAnimation(keyPath: "position.x");
+        moveAnimation.values = values;
+        moveAnimation.duration = 0.25;
+        moveAnimation.fillMode = .forwards;
+        moveAnimation.isRemovedOnCompletion = true;
+        return moveAnimation;
     }
     
     deinit {

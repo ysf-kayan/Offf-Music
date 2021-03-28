@@ -94,11 +94,6 @@ class MusicPlayer: NSObject {
         }
         
         if (queue.count > 0) {
-            if (playbackState == .PLAYING) {
-                // Yeni bir kuyruk başlatıldığında eğer şarkı çalmaktaysa çalmakta olan şarkının
-                //    pozisyonunu kaydet.
-                AppGlobals.saveLastPosInfoOfSong(song: MusicPlayer.getCurrentItem(), pos: MusicPlayer.getPlayer().currentTime().seconds);
-            }
             if (startAt != nil) {
                 currentItemIndex = startAt!;
             } else {
@@ -204,6 +199,12 @@ class MusicPlayer: NSObject {
     }
     
     static func setQueue(newQueue: [MPMediaItem]) {
+        if (playbackState == .PLAYING) {
+            // Yeni bir kuyruk atandığında eğer şarkı çalmaktaysa çalmakta olan şarkının
+            //    pozisyonunu kaydet.
+            AppGlobals.saveLastPosInfoOfSong(song: MusicPlayer.getCurrentItem(), pos: MusicPlayer.getPlayer().currentTime().seconds);
+        }
+        
         queue = newQueue;
         originalQueue = queue;
         shuffleStatus = .NO_SHUFFLE;

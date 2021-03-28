@@ -151,6 +151,8 @@ class PlayerScreenViewController: UIViewController {
     }
     
     private func resumeVinylPlayingAnimation() {
+        createVinylAnimationsIfNeeded();
+        
         vinylAnimator.continueAnimation(withTimingParameters: vinylAnimator.timingParameters, durationFactor: 1 - vinylAnimator.fractionComplete);
         lightAnimator.continueAnimation(withTimingParameters: lightAnimator.timingParameters, durationFactor: 1 - lightAnimator.fractionComplete);
     }
@@ -179,14 +181,18 @@ class PlayerScreenViewController: UIViewController {
         print("viewWillAppear");
     }
     
-    override func viewDidLayoutSubviews() {
-        //print("viewDidLayoutSubviews()");
+    private func createVinylAnimationsIfNeeded() {
         if (!animationsInitialized) {
             if (MusicPlayer.getPlaybackState() == .PLAYING) {
                 startVinylPlayingAnimation();
+                animationsInitialized = true;
             }
-            animationsInitialized = true;
         }
+    }
+    
+    override func viewDidLayoutSubviews() {
+        //print("viewDidLayoutSubviews()");
+        createVinylAnimationsIfNeeded();
         
         if (controlsContainerHeight != controlsView.frame.height) {
             controlsContainerHeight = controlsView.frame.height;

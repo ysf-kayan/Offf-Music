@@ -33,6 +33,9 @@
          contextName = "static MusicPlayer.setCurrentItem():MusicPlayer.swift">
          <PersistentStrings>
             <PersistentString
+               value = "currentItem.title">
+            </PersistentString>
+            <PersistentString
                value = "queue[getCurrentItemIndex()].title">
             </PersistentString>
             <PersistentString
@@ -134,10 +137,10 @@
                value = "structuredSongList[&quot;ASMR&quot;];">
             </PersistentString>
             <PersistentString
-               value = "SongList.artistsSectionStructure">
+               value = "structuredSongList[&quot;Pilli Bebek&quot;];">
             </PersistentString>
             <PersistentString
-               value = "structuredSongList[&quot;Pilli Bebek&quot;];">
+               value = "SongList.artistsSectionStructure">
             </PersistentString>
          </PersistentStrings>
       </ContextState>
@@ -169,10 +172,10 @@
          contextName = "AppDelegate.application(_:didFinishLaunchingWithOptions:):AppDelegate.swift">
          <PersistentStrings>
             <PersistentString
-               value = "lastyPosDict.keys[0]">
+               value = "query.items.count">
             </PersistentString>
             <PersistentString
-               value = "query.items.count">
+               value = "lastyPosDict.keys[0]">
             </PersistentString>
          </PersistentStrings>
       </ContextState>
